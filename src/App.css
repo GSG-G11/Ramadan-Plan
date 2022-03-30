@@ -81,3 +81,19 @@ textarea {
   align-self: flex-end;
   margin-right: 15px;
 }
+.day-container {
+  padding: 10px 5px;
+  background-color: #05414a;
+  color: white;
+  width: 45%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 10px;
+}
+.select {
+  width: 30%;
+  margin-left: 5px;
+  font-family: Arial;
+  color: #05414a;
+}

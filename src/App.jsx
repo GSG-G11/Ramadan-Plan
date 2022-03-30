@@ -1,4 +1,6 @@
 import { Component } from 'react';
+import Day from './Components/DayComponent';
+
 import './App.css';
 import TextAreaComponent from './Components/TextAreaComponent';
 class App extends Component {
@@ -6,6 +8,7 @@ class App extends Component {
     text: '',
     isTextAdded: false,
     isTextMoreThanFive: false,
+    day: 1,
   };
   handleOnTextAdded = () => {
     const { text } = this.state;
@@ -20,6 +23,12 @@ class App extends Component {
     });
   };
 
+  handleDayChange = (value) => {
+    this.setState({
+      day: value,
+    });
+  };
+
   render() {
     const { text, isTextAdded } = this.state;
     console.log(text, isTextAdded);
@@ -31,6 +40,8 @@ class App extends Component {
         </div>
         <div className="form-section">
           <form className="form">
+            <Day handleDayChange={this.handleDayChange} day={this.state.day} />
+
             <TextAreaComponent
               handleOnTextAdded={this.handleOnTextAdded}
               handleOnTextChanged={this.handleOnTextChanged}
