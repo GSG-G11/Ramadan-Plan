@@ -1,0 +1,19 @@
+{
+  "name": "ramadan-plan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-G11/Ramadan-Plan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-G11/Ramadan-Plan/issues"
+  },
+  "homepage": "https://github.com/GSG-G11/Ramadan-Plan#readme"
+}
