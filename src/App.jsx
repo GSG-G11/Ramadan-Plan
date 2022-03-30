@@ -34,9 +34,24 @@ class App extends Component {
       day: value,
     });
   };
+  handleDelete = (e) => {
+    this.setState((prevState) => {
+      return {
+        data: prevState.data.filter((plan,index) => {
+          console.log(e);
+          console.log(e!==index);
+          return e !== index
+        })
+      };
+    });
+
+    console.log(this.state.data);
+  }
 
   render() {
     const { addedText, isTextAdded, data, addedDay, day } = this.state;
+    console.log(data);
+
     return (
       <>
         <div className="main-section">
@@ -60,6 +75,7 @@ class App extends Component {
               isTextAdded={isTextAdded}
               addedText={addedText}
               data={data}
+              handleDelete={this.handleDelete}
             />
           </form>
         </div>

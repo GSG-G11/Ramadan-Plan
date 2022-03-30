@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Card({ data, isTextAdded }) {
+function Card({ data, isTextAdded, handleDelete }) {
   return (
     <div className="cards-container">
       {data.map((plan, index) => {
@@ -12,7 +12,7 @@ function Card({ data, isTextAdded }) {
             <p className="date">{plan.addedDay} / Ramadan</p>
             <p className="text">{plan.addedText}</p>
             <div className="icons">
-              <i className="icon fa fa-trash"></i>
+              <i className="icon fa fa-trash" id={index} onClick={(e)=>handleDelete(e.target.id)}></i>
               <i className="icon fas fa-edit"></i>
             </div>
           </div>
