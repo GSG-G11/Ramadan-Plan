@@ -18,10 +18,10 @@ class App extends Component {
   handleOnTextAdded = () => {
     const { addedText, day } = this.state;
     this.setState({
-      isTextAdded: addedText.length >= 5 ? true : false,
+      isTextAdded: addedText.length >= 1 ? true : false,
     });
     this.setState((prevState) => {
-      if (addedText.length >= 5)
+      if (addedText.length >= 1)
         return {
           data: [...prevState.data, { addedText, addedDay: day }],
           addedText: '',
@@ -61,6 +61,7 @@ class App extends Component {
         }
         return plan;
       }),
+      editing: false,
     });
   };
 
