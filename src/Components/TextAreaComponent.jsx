@@ -3,32 +3,43 @@ import React from 'react';
 function TextAreaComponent({
   handleOnTextAdded,
   handleOnTextChanged,
-  text,
+  addedText,
   isTextAdded,
+  day,
 }) {
   return (
     <div className="textarea-container">
       <label className="textarea-label" htmlFor="ramadan-todo">
-        What to do in 30 Ramadan?
+        What to do in {day} Ramadan?
       </label>
       <textarea
         name="ramadan-todo"
-        value={text}
-        onChange={(e) => {
-          handleOnTextChanged(e.target.value);
-        }}
+        value={addedText}
+        onChange={handleOnTextChanged}
       ></textarea>
       <input
         type="button"
         value="Add"
-        onClick={() => {
+        onClick={(e) => {
           handleOnTextAdded();
         }}
       />
       {isTextAdded ? (
-        <p>Plan Added Successfully</p>
+        <p
+          style={{
+            color: '#73E831',
+          }}
+        >
+          Plan Added Successfully
+        </p>
       ) : (
-        <p>Plan Text Should Be More Than 5 Characters</p>
+        <p
+          style={{
+            color: '#fa1100',
+          }}
+        >
+          Text Should Be More Than 5 Characters
+        </p>
       )}
     </div>
   );
