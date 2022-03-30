@@ -12,16 +12,20 @@ class App extends Component {
     data: [],
     addedText: '',
     addedDay: 1,
+    editing: false,
   };
 
-  handleOnTextAdded = (value) => {
+  handleOnTextAdded = () => {
     const { addedText, day } = this.state;
+    this.setState({
+      isTextAdded: addedText.length >= 5 ? true : false,
+    });
     this.setState((prevState) => {
-      return {
-        isTextAdded: addedText.length >= 5 ? true : false,
-        data: [...prevState.data, { addedText, addedDay: day }],
-        addedText: '',
-      };
+      if (addedText.length >= 5)
+        return {
+          data: [...prevState.data, { addedText, addedDay: day }],
+          addedText: '',
+        };
     });
   };
   handleOnTextChanged = ({ target }) => {
@@ -34,24 +38,35 @@ class App extends Component {
       day: value,
     });
   };
-  handleDelete = (e) => {
+  handleDelete = (id) => {
     this.setState((prevState) => {
       return {
-        data: prevState.data.filter((plan,index) => {
-          console.log(e);
-          console.log(e!==index);
-          return e !== index
-        })
+        data: prevState.data.filter((plan, index) => {
+          console.log(plan, index, id);
+          return id !== index;
+        }),
       };
     });
-
-    console.log(this.state.data);
-  }
+  };
+  handleEditing = (e) => {
+    this.setState({
+      editing: true,
+    });
+  };
+  handleEditPlan = (id, updatedText) => {
+    this.setState({
+      data: this.state.data.map((plan, idx) => {
+        if (idx === id) {
+          plan.addedText = updatedText;
+        }
+        return plan;
+      }),
+    });
+  };
 
   render() {
-    const { addedText, isTextAdded, data, addedDay, day } = this.state;
-    console.log(data);
-
+    console.log(this.state);
+    const { addedText, isTextAdded, data, addedDay, day, editing } = this.state;
     return (
       <>
         <div className="main-section">
@@ -76,6 +91,9 @@ class App extends Component {
               addedText={addedText}
               data={data}
               handleDelete={this.handleDelete}
+              handleEditPlan={this.handleEditPlan}
+              handleEditing={this.handleEditing}
+              editing={editing}
             />
           </form>
         </div>

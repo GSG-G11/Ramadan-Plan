@@ -17,13 +17,7 @@ function TextAreaComponent({
         value={addedText}
         onChange={handleOnTextChanged}
       ></textarea>
-      <input
-        type="button"
-        value="Add"
-        onClick={(e) => {
-          handleOnTextAdded();
-        }}
-      />
+      <input type="button" value="Add" onClick={handleOnTextAdded} />
       {isTextAdded ? (
         <p
           style={{
