@@ -27,13 +27,7 @@ function TextAreaComponent({
           Plan Added Successfully
         </p>
       ) : (
-        <p
-          style={{
-            color: '#fa1100',
-          }}
-        >
-          Text Should Be More Than 5 Characters
-        </p>
+        <></>
       )}
     </div>
   );
