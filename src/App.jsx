@@ -66,8 +66,8 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
     const { addedText, isTextAdded, data, addedDay, day, editing } = this.state;
+    console.log(data);
     return (
       <>
         <div className="main-section">
